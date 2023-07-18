@@ -19,8 +19,8 @@ image nn_resize(image im, int w, int h)
     for(int i=0;i<new_image.c;i++){
         for(int j=0;j<new_image.h;j++){
             for(int k=0 ; k<new_image.w;k++){
-                x_ = w_scaled*(k+0.5)-0.5;
-                y_ = h_scaled*(j+0.5)-0.5;
+                x_ = w_scaled*(k);
+                y_ = h_scaled*(j);
                 set_pixel(new_image,k,j,i,nn_interpolate(im,x_,y_,i));
             }
         }
@@ -69,8 +69,8 @@ image bilinear_resize(image im, int w, int h)
     for(int i=0;i<new_image.c;i++){
         for(int j=0;j<new_image.h;j++){
             for(int k=0 ; k<new_image.w;k++){
-                x_ = (w_scaled)*(k+0.5)-0.5;
-                y_ = (h_scaled+0.5)*(j+0.5)-0.5;
+                x_ = (w_scaled)*(k+0.5);
+                y_ = (h_scaled)*(j+0.5);
                 set_pixel(new_image,k,j,i,bilinear_interpolate(im,x_,y_,i));
             }
         }
